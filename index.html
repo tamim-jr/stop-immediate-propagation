@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add event Listener stop propagation stop immediate propagation</title>
+</head>
+<body>
+    <div id="container">
+        <h2>Add event Listener stop propagation stop immediate propagation</h2>
+        <p>Click here and see console log</p>
+    <ul id="up-list">
+        <p>Hello Event</p>
+        <li id="listSt">List- 1</li>
+        <li>List- 2</li>
+        <li>List- 3</li>
+    </ul>
+    </div>
+
+    <script>
+        document.getElementById("container").addEventListener('click', function(){
+            console.log("This is Container");
+        })
+        document.getElementById('up-list').addEventListener('click', function(){
+            console.log("This is Ul");
+            event.stopImmediatePropagation();
+        })
+        document.getElementById("listSt").addEventListener('click', function(){
+            console.log("This is List");
+            event.stopPropagation();
+        })
+    </script>
+</body>
+</html>
